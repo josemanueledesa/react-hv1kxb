@@ -16,7 +16,7 @@ class telefonos extends React.Component {
   };
 
   async componentDidMount() {
-    const response = await fetch('https://www.etnassoft.com/api/v1/get/?lang=spanish&category=libros_programacion&results_range=0,05');
+    const response = await fetch('https://api-mobilespecs.azharimm.site/v2/top-by-fans');
     const responseData = await response.json();
     this.setState({ tableData: responseData, selectedItem: responseData[0] });
   }
