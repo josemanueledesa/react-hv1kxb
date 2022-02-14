@@ -32,8 +32,8 @@ class telefonos extends React.Component {
 
   //Funcion para encontrar dentro de la api un telefono con una marca determinada
   async encontrartelefono() {
-    const marca = this.refer.current.value;
-    const response = await fetch('http://api-mobilespecs.azharimm.site/v2/search?query= ' + marca);
+    const marca = this.referMarcas.current.value;
+    const response = await fetch('http://api-mobilespecs.azharimm.site/v2/search? ' + marca);
     const responseData = await response.json();
     this.setState({
       tableData: responseData.data.phones
@@ -45,7 +45,7 @@ class telefonos extends React.Component {
 //NO FUNCIONA , TE DEJO AQUI LA API CON LA SELECCION DE LA FILA Y TE LO INTENTO HACER DE OTRA FORMA A VER SI ME solamente
 //incluimos una segunda referencia a la api como pides
   async componentDidMount() {
-    const response = await fetch('https://api-mobilespecs.azharimm.site/v2/top-by-fans');
+    const response = await fetch('https://api-mobilespecs.azharimm.site/v2');
     const response2 = await fetch('https://api-mobilespecs.azharimm.site/v2/top-by-fans');
     const responseData2 = await response2.json();
     const responseData = await response.json();
