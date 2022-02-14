@@ -27,7 +27,7 @@ class App extends React.Component {
 
     return (
       <div className="container App">
-        <h4 className="d-inline-block">Clue Mediator</h4>
+        <h4 className="d-inline-block">API Telefonos______</h4>
         <button
           className="btn btn-info float-right"
           onClick={this.getUserList}
@@ -42,7 +42,7 @@ class App extends React.Component {
             <th>Marca</th>
             <th>Modelo</th>
             <th>Cantidad</th>
-            <th>Avatar</th>
+            <th>Enlace Detalles</th>
           </thead>
           <tbody>
             {userList.map(x => (
@@ -51,7 +51,7 @@ class App extends React.Component {
                 <td>{x.brand_slug}</td>
                 <td>{x.device_count}</td>
                 <td>
-                  <img src={x.avatar} width="50" height="50" />
+                  <img src={x.detail} width="50" height="50" />
                 </td>
               </tr>
             ))}
