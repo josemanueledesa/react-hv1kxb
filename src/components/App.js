@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import uuid from 'react-uuid';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,10 +11,13 @@ class App extends React.Component {
     };
     this.getUserList = this.getUserList.bind(this);
   }
-
+  changeSelected = (item) => {
+    this.setState({ selectedItem: item });
+  };
   getUserList() {
     this.setState({ loading: true });
     fetch("https://api-mobilespecs.azharimm.site/v2/brands")
+    //https://api-mobilespecs.azharimm.site/v2/top-by-fans no funciona
       .then(res => res.json())
       .then(res => {
         setTimeout(() => {
@@ -33,7 +37,7 @@ class App extends React.Component {
           onClick={this.getUserList}
           disabled={loading}
         >
-          {loading ? "Loading..." : "Get User List"}
+          {loading ? "Loading..." : "Búsqueda"}
         </button>
         <div className="clearfix" />
 
@@ -44,7 +48,8 @@ class App extends React.Component {
             <th>Cantidad</th>
             <th>Enlace Detalles</th>
           </thead>
-          <tbody>
+        
+                  <tbody>
             {userList.map(x => (
               <tr>
                 <td>{x.brand_name}</td>
@@ -70,6 +75,7 @@ class App extends React.Component {
           https://github.com/azharimm/phone-specs-api
           </a>
         </h4>
+      
       </div>
     );
   }
