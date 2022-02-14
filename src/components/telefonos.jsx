@@ -14,9 +14,10 @@ class telefonos extends React.Component {
   changeSelected = (item) => {
     this.setState({ selectedItem: item });
   };
-
+//NO FUNCIONA , TE DEJO AQUI LA API CON LA SELECCION DE LA FILA Y TE LO INTENTO HACER DE OTRA FORMA A VER SI ME solamente
   async componentDidMount() {
     const response = await fetch('https://api-mobilespecs.azharimm.site/v2/top-by-fans');
+    
     const responseData = await response.json();
     this.setState({ tableData: responseData, selectedItem: responseData[0] });
   }
@@ -34,10 +35,9 @@ class telefonos extends React.Component {
               <Table responsive striped hover>
                 <thead>
                   <tr>
-                    <th> id</th>
-                    <th>cover</th>
-                    <th>title</th>
-                    <th>autor</th>
+                    <th> Marca</th>
+                    <th>Modelo</th>
+                   
                     
                     
                   </tr>
@@ -49,10 +49,9 @@ class telefonos extends React.Component {
                         key={uuid()}
                         onClick={() => this.changeSelected(item)}
                       >
-                        <td>{item.ID}</td>
-                        <td>{item.author}</td>
-                        <td>{item.title}</td>
-                        <td>{item.author}</td>
+                        <td>{item.brand_name}</td>
+                        <td>{item.brand_slug}</td>
+                       
                         
                       </tr>
                     );
@@ -65,10 +64,18 @@ class telefonos extends React.Component {
               <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={this.state.selectedItem.cover} />
                 <Card.Body>
-                  <Card.Title>{this.state.selectedItem.id}</Card.Title>
+                  <Card.Title>{this.state.selectedItem.brand_name}</Card.Title>
+                  Aqui iria  con la referencia de selectedItem.?????
+                  <li>Imagen</li>
+            <li>Marca - Modelo</li>
+            <li>Sistema operativo</li>
+            <li>Dimensión</li>
+            <li>Almacenamiento</li>
+            
                   <Card.Text>
-                    author: {this.state.selectedItem.author}
+                    author: {this.state.selectedItem.brand_slug}
                     <p />
+                    
                    title: {this.state.selectedItem.title}
                    <p />
                    imagen: {this.state.selectedItem.time}
