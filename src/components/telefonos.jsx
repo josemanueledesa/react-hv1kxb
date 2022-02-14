@@ -28,7 +28,7 @@ class telefonos extends React.Component {
       : console.log(`No hay objeto seleccionado`);
     return (
       <div className="main-site">
-        <h1>Bibliografia</h1>
+        <h1>Telefonos</h1>
         <Container>
           <Row>
             <Col lg={8} md={6}>
