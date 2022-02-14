@@ -14,7 +14,7 @@ class FormularioEj2 extends React.Component {
     this.valorDatePublicacion = React.createRef();
     this.valorNPaginas = React.createRef();
     this.valorURLImagen = React.createRef();
-    this.valorTextIdioma = React.createRef();
+   
   }
 
   onClickAñadir() {

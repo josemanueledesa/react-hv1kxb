@@ -6,7 +6,7 @@ class telefono extends React.Component {
     super(props);
     this.titulo = props.titulo;
     this.autor = props.autor;
- 
+   
     this.paginas = props.paginas;
     this.urlimagen = props.urlimagen;
     this.idioma = props.idioma;
