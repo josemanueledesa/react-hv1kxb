@@ -8,10 +8,10 @@ class App extends React.Component {
       userList: [],
       loading: false
     };
-    this.getTelefonosList = this.getTelefonosList.bind(this);
+    this.getUserList = this.getUserList.bind(this);
   }
 
-  getTelefonosList() {
+  getUserList() {
     this.setState({ loading: true });
     fetch("https://api-mobilespecs.azharimm.site/v2/brands")
       .then(res => res.json())
@@ -39,17 +39,17 @@ class App extends React.Component {
 
         <table className="table mt-3">
           <thead className="thead-dark">
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Cantidad</th>
             <th>Avatar</th>
           </thead>
           <tbody>
             {userList.map(x => (
               <tr>
                 <td>{x.brand_name}</td>
-                <td>{x.last_name}</td>
-                <td>{x.email}</td>
+                <td>{x.brand_slug}</td>
+                <td>{x.device_count}</td>
                 <td>
                   <img src={x.avatar} width="50" height="50" />
                 </td>
@@ -66,8 +66,8 @@ class App extends React.Component {
         </table>
 
         <h4 style={{ textAlign: "center" }}>
-          <a href="http://www.cluemediator.com" target="_blank">
-            Checkout more article on ReactJS
+          <a href="https://github.com/azharimm/phone-specs-api" target="_blank">
+          https://github.com/azharimm/phone-specs-api
           </a>
         </h4>
       </div>
