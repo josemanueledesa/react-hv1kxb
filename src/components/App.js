@@ -1,66 +1,78 @@
-import React, { useState } from "react";
+import React from "react";
+import "./App.css";
 
-function App() {
-  const [inputList, setInputList] = useState([{ titulo: "", autor: "",lastName2: "" }]);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      telList: [],
+      loading: false
+    };
+    this.getTelefonosList = this.getTelefonosList.bind(this);
+  }
 
-  // handle input change
-  const handleInputChange = (e, index) => {
-    const { name, value } = e.target;
-    const list = [...inputList];
-    list[index][name] = value;
-    setInputList(list);
-  };
+  getTelefonosList() {
+    this.setState({ loading: true });
+    fetch("https://api-mobilespecs.azharimm.site/v2/brands")
+      .then(res => res.json())
+      .then(res => {
+        setTimeout(() => {
+          this.setState({ loading: false, telList: res.data });
+        }, 2000);
+      });
+  }
 
-  // handle click event of the Remove button
-  const handleRemoveClick = index => {
-    const list = [...inputList];
-    list.splice(index, 1);
-    setInputList(list);
-  };
+  render() {
+    const { telList, loading } = this.state;
 
-  // handle click event of the Add button
-  const handleAddClick = () => {
-    setInputList([...inputList, { titulo: "", autor: "",lastName2: "" }]);
-  };
+    return (
+      <div className="container App">
+        <h4 className="d-inline-block">Clue Mediator</h4>
+        <button
+          className="btn btn-info float-right"
+          onClick={this.gettelList}
+          disabled={loading}
+        >
+          {loading ? "Loading..." : "Get User List"}
+        </button>
+        <div className="clearfix" />
 
-  return (
-    <div className="App">
-      <h3><a href="https://cluemediator.com">Clue Mediator</a></h3>
-      {inputList.map((x, i) => {
-        return (
-          <div className="box">
-            <input
-              name="titulo"
-              placeholder=" introduce titulo"
-              value={x.firstName}
-              onChange={e => handleInputChange(e, i)}
-            />
-            <input
-              className="ml10"
-              name="autor"
-              placeholder=" introduce autor"
-              value={x.lastName}
-              onChange={e => handleInputChange(e, i)}
-            />
-            <input
-              className="ml10"
-              name="lastName2"
-              placeholder="Enter Last Name"
-              value={x.lastName2}
-              onChange={e => handleInputChange(e, i)}
-            />
-            <div className="btn-box">
-              {inputList.length !== 1 && <button
-                className="mr10"
-                onClick={() => handleRemoveClick(i)}>Remove</button>}
-              {inputList.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
-            </div>
-          </div>
-        );
-      })}
-      <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>
-    </div>
-  );
+        <table className="table mt-3">
+          <thead className="thead-dark">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Avatar</th>
+          </thead>
+          <tbody>
+            {telList.map(x => (
+              <tr>
+                <td>{x.brand_name}</td>
+                <td>{x.last_name}</td>
+                <td>{x.email}</td>
+                <td>
+                  <img src={x.avatar} width="50" height="50" />
+                </td>
+              </tr>
+            ))}
+            {telList.length == 0 && (
+              <tr>
+                <td className="text-center" colSpan="4">
+                  <b>No data found to display.</b>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+
+        <h4 style={{ textAlign: "center" }}>
+          <a href="http://www.cluemediator.com" target="_blank">
+            Checkout more article on ReactJS
+          </a>
+        </h4>
+      </div>
+    );
+  }
 }
 
 export default App;
