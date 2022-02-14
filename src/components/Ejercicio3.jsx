@@ -26,7 +26,7 @@ class Ejercicio3 extends React.Component {
 
 
 
-/*Asi se completaria mas o menos la lista de favoritos pero no me da tiempo  a hacerlo ya que no me funciona la api
+/*Asi se completaria mas o menos la lista  con la tabla telefonos 
 class Ejercicio3 extends React.Component {
   constructor(props) {
     super(props);
