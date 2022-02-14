@@ -1,6 +1,6 @@
 import React from 'react';
 import uuid from 'react-uuid';
-import { Card, Container, Table, Row, Col,  } from 'react-bootstrap';
+import { Card, Container, Table, Row, Col } from 'react-bootstrap';
 
 
 import './table_component.css';
@@ -16,7 +16,7 @@ class telefonos extends React.Component {
   };
 
   async componentDidMount() {
-    const response = await fetch('');
+    const response = await fetch('https://www.etnassoft.com/api/v1/get/?lang=spanish&category=libros_programacion&results_range=0,05');
     const responseData = await response.json();
     this.setState({ tableData: responseData, selectedItem: responseData[0] });
   }
