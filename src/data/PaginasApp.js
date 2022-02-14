@@ -4,6 +4,7 @@ import Ejercicio1 from '../components/Ejercicio1';
 import Ejercicio2 from '../components/Ejercicio2';
 import Ejercicio3 from '../components/Ejercicio3';
 import telefonos from '../components/telefonos';
+import bibliografia from '../components/bibliografia'
 import App from '../components/App';
 export const MenuItems = [
 
@@ -29,13 +30,13 @@ export const MenuItems = [
   {
     id: 4,
     path: '/Telefonos',
-    title: 'telefonos',
+    title: 'bibliografia',
     component: telefonos,
   },
   {
     id: 5,
     path: '/App',
-    title: 'app',
+    title: 'Telefonos',
     component: App,
   },
 

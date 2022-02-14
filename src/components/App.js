@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import uuid from 'react-uuid';
-
+import { Card, Container, Table, Row, Col } from 'react-bootstrap';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -48,18 +48,24 @@ class App extends React.Component {
             <th>Cantidad</th>
             <th>Enlace Detalles</th>
           </thead>
-        
+          <tbody>
+          {this.state.userList.map((item) => {
+                    return (
+                      <tr
+                        key={uuid()}
+                        onClick={() => this.changeSelected(item)}
+                      >
+                        <td>{item.brand_name}</td>
+                        <td>{item.brand_slug}</td>
+                        <td>{item.device_count}</td>
+                        <td>{item.author}</td>
+                        
+                      </tr>
+                    );
+                  })}
+                  </tbody>
                   <tbody>
-            {userList.map(x => (
-              <tr>
-                <td>{x.brand_name}</td>
-                <td>{x.brand_slug}</td>
-                <td>{x.device_count}</td>
-                <td>
-                  <img src={x.detail} width="50" height="50" />
-                </td>
-              </tr>
-            ))}
+           
             {userList.length == 0 && (
               <tr>
                 <td className="text-center" colSpan="4">
@@ -75,7 +81,6 @@ class App extends React.Component {
           https://github.com/azharimm/phone-specs-api
           </a>
         </h4>
-      
       </div>
     );
   }
