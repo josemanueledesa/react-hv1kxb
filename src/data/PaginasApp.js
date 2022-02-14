@@ -4,9 +4,9 @@ import Ejercicio1 from '../components/Ejercicio1';
 import Ejercicio2 from '../components/Ejercicio2';
 import Ejercicio3 from '../components/Ejercicio3';
 import telefonos from '../components/telefonos';
-import bibliografia from '../components/bibliografia'
+
 import App from '../components/App';
-import FormularioEj2 from '../components/FormularioEj2';
+import Formularioejercicio3 from '../components/Formularioejercicio3';
 export const MenuItems = [
 
   {
@@ -41,10 +41,10 @@ export const MenuItems = [
     component: App,
   },
   {
-    id: 5,
-    path: '/FormularioEj2',
-    title: 'FormularioEj2',
-    component: App,
+    id: 6,
+    path: '/Formularioejercicio3',
+    title: 'formulario',
+    component: Formularioejercicio3,
   },
  
 ];
