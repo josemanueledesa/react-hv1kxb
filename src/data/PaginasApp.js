@@ -6,6 +6,7 @@ import Ejercicio3 from '../components/Ejercicio3';
 import telefonos from '../components/telefonos';
 import bibliografia from '../components/bibliografia'
 import App from '../components/App';
+import FormularioEj2 from '../components/FormularioEj2';
 export const MenuItems = [
 
   {
@@ -39,7 +40,12 @@ export const MenuItems = [
     title: 'Telefonos',
     component: App,
   },
-
+  {
+    id: 5,
+    path: '/FormularioEj2',
+    title: 'FormularioEj2',
+    component: App,
+  },
  
 ];
 
