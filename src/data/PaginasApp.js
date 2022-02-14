@@ -28,17 +28,18 @@ export const MenuItems = [
     title: 'ejercicio3',
     component: Ejercicio3,
   },
+ 
   {
     id: 4,
-    path: '/Telefonos',
-    title: 'bibliografia',
-    component: telefonos,
-  },
-  {
-    id: 5,
     path: '/App',
     title: 'Telefonos',
     component: App,
+  },
+  {
+    id: 5,
+    path: '/Telefonos',
+    title: 'telefonos2',
+    component: telefonos,
   },
   {
     id: 6,
