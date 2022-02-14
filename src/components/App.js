@@ -11,12 +11,15 @@ class App extends React.Component {
     };
     this.getUserList = this.getUserList.bind(this);
   }
+  
   changeSelected = (item) => {
     this.setState({ selectedItem: item });
   };
+  
   getUserList() {
     this.setState({ loading: true });
     fetch("https://api-mobilespecs.azharimm.site/v2/brands")
+    
     //https://api-mobilespecs.azharimm.site/v2/top-by-fans no funciona
       .then(res => res.json())
       .then(res => {

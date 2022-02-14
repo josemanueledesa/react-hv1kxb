@@ -23,4 +23,18 @@ class Ejercicio3 extends React.Component {
   }
 }
 
-export default Ejercicio3;
+
+
+
+/*Asi se completaria mas o menos la lista de favoritos pero no me da tiempo  a hacerlo ya que no me funciona la api
+class Ejercicio3 extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  {localStorage.getItem('TELEFONOS').map((item) => {
+    return (
+      <ul>{item.imagenes}</ul>
+    );
+  })}
+  <li>{localStorage.getItem('TELEFONOS')}</li>*/
+  

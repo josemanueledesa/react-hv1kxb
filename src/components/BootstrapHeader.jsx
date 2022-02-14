@@ -12,7 +12,7 @@ class BootstrapHeader extends React.Component {
 
   render() {
     return (
-<Navbar bg="light" expand={false}>
+<Navbar collapseOnSelect expand="lg" bg="light" variant="light">
   <Container fluid>
     <Navbar.Brand bg="light" href="#">Menu</Navbar.Brand>
             <img
