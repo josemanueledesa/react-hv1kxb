@@ -5,7 +5,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      telList: [],
+      userList: [],
       loading: false
     };
     this.getTelefonosList = this.getTelefonosList.bind(this);
@@ -17,20 +17,20 @@ class App extends React.Component {
       .then(res => res.json())
       .then(res => {
         setTimeout(() => {
-          this.setState({ loading: false, telList: res.data });
+          this.setState({ loading: false, userList: res.data });
         }, 2000);
       });
   }
 
   render() {
-    const { telList, loading } = this.state;
+    const { userList, loading } = this.state;
 
     return (
       <div className="container App">
         <h4 className="d-inline-block">Clue Mediator</h4>
         <button
           className="btn btn-info float-right"
-          onClick={this.gettelList}
+          onClick={this.getUserList}
           disabled={loading}
         >
           {loading ? "Loading..." : "Get User List"}
@@ -45,7 +45,7 @@ class App extends React.Component {
             <th>Avatar</th>
           </thead>
           <tbody>
-            {telList.map(x => (
+            {userList.map(x => (
               <tr>
                 <td>{x.brand_name}</td>
                 <td>{x.last_name}</td>
@@ -55,7 +55,7 @@ class App extends React.Component {
                 </td>
               </tr>
             ))}
-            {telList.length == 0 && (
+            {userList.length == 0 && (
               <tr>
                 <td className="text-center" colSpan="4">
                   <b>No data found to display.</b>
